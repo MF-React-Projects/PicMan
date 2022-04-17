@@ -1,6 +1,112 @@
-.service{
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    padding-bottom: 10px;
-    text-align: center;
+.xg-portfolio-item-v2 {
+    background: no-repeat center center;
+    background-size: cover;
+    position: relative;
+    min-height: 292px;
+}
+
+.xg-portfolio-item-v2 .before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
+    z-index: 1;
+}
+
+.xg-portfolio-item-v2:hover .xg-portfolio-item-v2-link {
+    box-shadow: none;
+}
+
+.xg-portfolio-item-v2:hover .xg-portfolio-item-v2-link .before {
+    -webkit-animation: 1.5s xg-pulse .3s infinite;
+    animation: 1.5s xg-pulse .3s infinite;
+}
+
+.xg-portfolio-item-v2:hover .xg-portfolio-item-v2-link .after {
+    -webkit-animation: xg-pulse 1.5s infinite;
+    animation: xg-pulse 1.5s infinite;
+}
+
+.xg-portfolio-item-v2-content {
+    position: relative;
+    z-index: 2;
+    padding: 47px 30px 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.xg-portfolio-item-v2-content h4 {
+    letter-spacing: .01em;
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 1.3125rem;
+}
+
+.xg-portfolio-item-v2-content p {
+    max-width: 230px;
+    font-size: .875rem;
+    line-height: 26px;
+    letter-spacing: .01em;
+    margin-bottom: 40px;
+    display: block;
+    color: #c5c5c5;
+}
+
+.xg-portfolio-item-v2-link {
+    display: block;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #1f5152;
+    box-shadow: 0 5px 16px rgba(31, 81, 82, 0.5);
+}
+
+.xg-portfolio-item-v2-link .after,
+.xg-portfolio-item-v2-link .before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: rgba(31, 81, 82, 0.5);
+}
+
+.xg-portfolio-item-v2-link i {
+    position: absolute;
+    top: 50%;
+    font-size: 1.125rem;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
+@media (min-width: 768px) {
+    .xg-portfolio-item-left .xg-portfolio-item-v2-content {
+        text-align: right;
+        align-items: flex-end;
+    }
+
+    .xg-portfolio-item-left .before {
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent);
+    }
+}
+
+@keyframes xg-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
 }

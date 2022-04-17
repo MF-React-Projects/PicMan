@@ -17,7 +17,7 @@ const Banner = () => {
 
     return (
         <>
-            <div className="banner-section" id="home">
+            <section className="banner-section" id="home">
                 <div className="overlay"></div>
                 <div className="banner-background-image" style={{backgroundImage: `url(${bannerImg})`}}></div>
 
@@ -35,7 +35,7 @@ const Banner = () => {
                         </div>
                     </Container>
                 </div>
-            </div>
+            </section>
         </>
     );
 };
