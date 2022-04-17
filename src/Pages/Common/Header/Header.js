@@ -14,7 +14,7 @@ const Header = () => {
                 <Container>
                     <div className="pm-header-menu-wrapper">
                         <div className="pm-header-logo">
-                            <Link to="index.php" className="pm-logo">
+                            <Link to="/" className="pm-logo">
                                 <img src={logo} className="img-fluid" alt="logo"/>
                             </Link>
                         </div>
@@ -32,6 +32,9 @@ const Header = () => {
                                     </li>
                                     <li className="pm-nav-item">
                                         <Link to='/about' className="pm-nav-link">About</Link>
+                                    </li>
+                                    <li className="pm-nav-item">
+                                        <Link to='/services' className="pm-nav-link">Services</Link>
                                     </li>
                                 </ul>
                             </Nav>
