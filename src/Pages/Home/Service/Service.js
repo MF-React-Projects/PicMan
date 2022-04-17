@@ -19,7 +19,7 @@ const Service = ({service}) => {
                         <p>{description}</p>
                         <button onClick={() => navigateToService(id)} className="xg-portfolio-item-v2-link" href="#">
                             <span className="before"></span>
-                            <i className="fa fa-angle-right"></i>
+
                             <span className="after"></span>
                         </button>
                     </div>
