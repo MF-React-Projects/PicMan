@@ -1,0 +1,301 @@
+
+.ic-header-area {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0
+}
+
+.ic-header-warper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px
+}
+
+@media only screen and (max-width: 575.98px) {
+    .ic-header-warper {
+        padding-top:15px
+    }
+}
+
+@media only screen and (max-width: 575.98px) {
+    .ic-header-warper .ic-header-logo {
+        flex:0 0 40%
+    }
+}
+
+@media only screen and (max-width: 767.98px) {
+    .ic-header-warper .ic-logo img {
+        width:80%
+    }
+}
+
+@media only screen and (max-width: 575.98px) {
+    .ic-header-warper .ic-logo img {
+        width:100%
+    }
+}
+
+.ic-header-menu-area {
+    display: flex;
+    align-items: center
+}
+
+.ic-navbar-nav {
+    display: flex
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-navbar-nav {
+        display:block
+    }
+}
+
+.ic-navbar-nav .ic-nav-item .ic-nav-link {
+    padding: 0 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #000;
+    transition: all .5s ease
+}
+
+.ic-navbar-nav .ic-nav-item .ic-nav-link.active,.ic-navbar-nav .ic-nav-item .ic-nav-link:hover {
+    color: #1b41c9
+}
+
+@media only screen and (max-width: 1366px) {
+    .ic-navbar-nav .ic-nav-item .ic-nav-link {
+        padding:0 16px
+    }
+}
+
+@media only screen and (max-width: 1199.98px) {
+    .ic-navbar-nav .ic-nav-item .ic-nav-link {
+        padding:0 10px;
+        font-size: 15px
+    }
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-navbar-nav .ic-nav-item .ic-nav-link {
+        display:block;
+        padding: 12px 10px;
+        font-size: 16px;
+        border-bottom: 1px solid #f2f2f2
+    }
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-header-login-signup {
+        display:flex;
+        align-items: center
+    }
+}
+
+.ic-header-login-signup ul {
+    display: flex;
+    align-items: center
+}
+
+.ic-header-login-signup ul a {
+    line-height: unset
+}
+
+.ic-header-login-signup ul .cart {
+    margin-right: 50px
+}
+
+@media only screen and (max-width: 1199.98px) {
+    .ic-header-login-signup ul .cart {
+        margin-right:10px
+    }
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-header-login-signup ul .cart {
+        margin-right:20px
+    }
+}
+
+@media only screen and (max-width: 575.98px) {
+    .ic-header-login-signup ul .cart {
+        margin-right:10px
+    }
+}
+
+@media only screen and (max-width: 575.98px) {
+    .ic-header-login-signup ul .cart svg {
+        width:25px
+    }
+}
+
+.ic-header-login-signup ul .cart svg path {
+    transition: all .5s ease
+}
+
+.ic-header-login-signup ul .cart:hover svg path {
+    color: #1b41c9;
+    fill: #1b41c9
+}
+
+.ic-header-login-signup ul .cart i {
+    font-size: 40px;
+    color: #f3d227;
+    transition: all .5s ease
+}
+
+@media only screen and (max-width: 1199.98px) {
+    .ic-header-login-signup ul .cart i {
+        font-size:30px
+    }
+}
+
+@media only screen and (max-width: 575.98px) {
+    .ic-header-login-signup ul .cart i {
+        font-size:28px
+    }
+}
+
+.ic-header-login-signup ul .ic-btn {
+    line-height: 50px
+}
+
+@media only screen and (max-width: 575.98px) {
+    .ic-header-login-signup ul .ic-btn {
+        line-height:35px;
+        height: 35px;
+        font-size: 13px;
+        padding: 0 15px
+    }
+}
+
+.ic-mobile-menu-icon .ic-mobile-menu-open {
+    width: 40px;
+    display: none;
+    position: relative;
+    z-index: 999
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-mobile-menu-icon .ic-mobile-menu-open {
+        display:block;
+        margin-left: 20px
+    }
+}
+
+@media only screen and (max-width: 575.98px) {
+    .ic-mobile-menu-icon .ic-mobile-menu-open {
+        width:35px;
+        margin-left: 10px
+    }
+}
+
+.ic-mobile-menu-icon .ic-mobile-menu-open:hover span {
+    width: 100%!important
+}
+
+.ic-mobile-menu-icon .ic-mobile-menu-open span {
+    height: 4px;
+    display: block;
+    transition: all .3s;
+    width: 100%;
+    border-radius: 2px;
+    text-align: right;
+    margin: 8px 0 0 auto;
+    background-color: #f3d227
+}
+
+.ic-mobile-menu-icon .ic-mobile-menu-open span:first-child {
+    width: 100%;
+    margin-top: 0
+}
+
+.ic-mobile-menu-icon .ic-mobile-menu-open span:nth-child(2) {
+    width: 80%
+}
+
+.ic-mobile-menu-icon .ic-mobile-menu-open span:nth-child(3) {
+    width: 60%
+}
+
+@media only screen and (max-width: 575.98px) {
+    .ic-mobile-menu-icon .ic-mobile-menu-open span {
+        height:4px
+    }
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-mobile-menu-warper {
+        position:fixed;
+        background: #fff;
+        z-index: 9999;
+        top: 0;
+        height: 100vh;
+        transition: all .5s ease;
+        left: 0;
+        padding: 40px 15px 30px;
+        overflow-y: auto;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        min-width: 300px;
+        -webkit-animation: unset!important;
+        animation: unset!important
+    }
+}
+
+.ic-mobile-menu-warper.menu-toggle-active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-mobile-menu-warper.active {
+        -webkit-transform:translateX(0);
+        transform: translateX(0)
+    }
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-mobile-menu-overlay {
+        width:100%;
+        height: 100%;
+        position: fixed;
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        background: #222;
+        top: 0
+    }
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-mobile-menu-overlay.active {
+        opacity:.5;
+        visibility: visible
+    }
+}
+
+.ic-menu-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 0 0 0 15px;
+    display: none;
+    background-color: #1e2230
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ic-menu-close {
+        display:block
+    }
+}
+
+.ic-menu-close svg {
+    color: #fff;
+    font-size: 30px
+}
