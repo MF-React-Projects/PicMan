@@ -45,10 +45,10 @@ a{
 
 .btn-default.btn-white{
     background: transparent;
-    border: 1px solid #fff;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9)
 }
 .btn-default.btn-white:hover{
     background: #e80000;
     border: 1px solid #e80000;
-    color: #fff;
 }

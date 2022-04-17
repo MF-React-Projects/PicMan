@@ -16,17 +16,17 @@ const Services = () => {
         <>
             <section className="service-section" id="services">
                 <Container>
-
                     <div className="section-header text-center">
-                        <h6 className="badge">Showcase your works</h6>
-                        <h3 className="section-title font-36">Check my works</h3>
-                        <p>Be ready to use the next generation of WordPress themes. Be ready to met Essentials by pixfort.</p>
+                        <h6 className="badge">My Best Services</h6>
+                        <h3 className="section-title font-36">Check my services</h3>
+                        <p>Boost your business with my best services. I have a lot of experience in
+                            different fields and I'm always ready to help you.</p>
                     </div>
 
                     <Row className='g-0'>
                         {
-                            services.map(service => (
-                                <Service key={service.id} service={service}/>
+                            services.map((service, index) => (
+                                <Service key={service.id} index={index} service={service}/>
                             ))
                         }
                     </Row>

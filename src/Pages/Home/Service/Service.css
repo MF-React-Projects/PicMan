@@ -5,108 +5,43 @@
     min-height: 292px;
 }
 
-.service-item .before {
+.service-item::after{
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
-    z-index: 1;
-}
-
-.service-item:hover .service-item-link {
-    box-shadow: none;
-}
-
-.service-item:hover .service-item-link .before {
-    -webkit-animation: 1.5s xg-pulse .3s infinite;
-    animation: 1.5s xg-pulse .3s infinite;
-}
-
-.service-item:hover .service-item-link .after {
-    -webkit-animation: xg-pulse 1.5s infinite;
-    animation: xg-pulse 1.5s infinite;
 }
 
 .service-item-content {
     position: relative;
     z-index: 2;
-    padding: 47px 30px 15px;
+    padding: 40px 30px;
     text-align: left;
-    display: flex;
-    flex-direction: column;
 }
-
+@media (min-width: 768px) {
+    .service-item-left .service-item-content {
+        text-align: right;
+    }
+}
 .service-item-content h4 {
     letter-spacing: .01em;
-    margin-bottom: 30px;
-    color: #fff;
-    font-size: 1.3125rem;
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 24px;
 }
-
+.service-item-content .price {
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+}
 .service-item-content p {
-    max-width: 260px;
+    max-width: 300px;
     font-size: 15px;
     line-height: 24px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     display: block;
     color: #d9d9d9;
-}
-
-.service-item-link {
-    display: inline-block;
-    height: 42px;
-    border-radius: 5px;
-    position: relative;
-    background-color: #e80000;
-    border: none;
-    color: #fff;
-    box-shadow: 0 5px 16px rgba(232, 0, 0, 0.5);
-}
-
-.service-item-link .after,
-.service-item-link .before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50%;
-    z-index: -1;
-    background-color: rgba(31, 81, 82, 0.5);
-}
-
-.service-item-link i {
-    position: absolute;
-    top: 50%;
-    font-size: 1.125rem;
-    color: #fff;
-    transform: translate(-50%, -50%);
-    left: 50%;
-}
-
-@media (min-width: 768px) {
-    .xg-portfolio-item-left .service-item-content {
-        text-align: right;
-        align-items: flex-end;
-    }
-
-    .xg-portfolio-item-left .before {
-        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent);
-    }
-}
-
-@keyframes xg-pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(2);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
 }
