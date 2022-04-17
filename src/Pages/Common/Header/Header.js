@@ -1,110 +1,55 @@
-import React, { useState } from "react";
+import React from 'react';
 import './Header.css';
-import { Container } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import logo from "../../../images/logo.png";
-import { MdClose } from "react-icons/md";
+import {Container, Nav} from "react-bootstrap";
+import logo from '../../../images/logo.png';
+import {Link} from "react-router-dom";
+import Button from "../Button/Button";
 
 const Header = () => {
-    const [menuToggle, setMenuToggle] = useState(false);
-    const handleMenuOpen = () => {
-        setMenuToggle(true);
-    };
-    const handleMenuClose = () => {
-        setMenuToggle(false);
-    };
 
     return (
-        <header className="ic-header-area">
-            <div
-                onClick={handleMenuClose}
-                className={`ic-mobile-menu-overlay ${menuToggle && `active`}`}
-            ></div>
-            <Container>
-                <div className="ic-header-warper">
-                    <div className="ic-header-logo">
-                        <div className="ic-logo">
-                            <NavLink to="/">
-                                <img src={logo} className="img-fluid" alt="logo" />
-                            </NavLink>
+        <>
+            <header className="pm-header-area">
+                <div className="pm-mobile-menu-overlay"/>
+                <Container>
+                    <div className="pm-header-menu-wrapper">
+                        <div className="pm-header-logo">
+                            <Link to="index.php" className="pm-logo">
+                                <img src={logo} className="img-fluid" alt="logo"/>
+                            </Link>
                         </div>
-                    </div>
-                    <div className="ic-header-menu-area">
-                        <nav
-                            className={`ic-navbar ic-mobile-menu-warper ${
-                                menuToggle && `menu-toggle-active`
-                            }`}
-                        >
-                            <div className="ic-mobile-menu-close">
-                                <a
-                                    href="#menu-close"
-                                    onClick={handleMenuClose}
-                                    className="ic-menu-close"
-                                >
-                                    <MdClose />
-                                </a>
+                        <div className="pm-header-middle">
+                            <Nav className="pm-navbar pm-mobile-menu-wrapper">
+                                <div className="pm-mobile-logo-close">
+                                    <img src={logo} className="img-fluid" alt="logo"/>
+                                    <a href="#" className="pm-menu-close">
+                                        <i className="ri-close-line"></i>
+                                    </a>
+                                </div>
+                                <ul className="pm-navbar-nav ">
+                                    <li className="pm-nav-item">
+                                        <Link to='/' className="pm-nav-link">Home</Link>
+                                    </li>
+                                    <li className="pm-nav-item">
+                                        <Link to='/about' className="pm-nav-link">About</Link>
+                                    </li>
+                                </ul>
+                            </Nav>
+                            <div className="pm-mobile-menu-icon">
+                                <div className="pm-mobile-menu-open">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                             </div>
-                            <ul className="ic-navbar-nav">
-                                <li className="ic-nav-item">
-                                    <NavLink
-                                        className="ic-nav-link"
-                                        to="/products"
-                                        activeClassName="active"
-                                    >
-                                        Products
-                                    </NavLink>
-                                </li>
-                                <li className="ic-nav-item">
-                                    <NavLink className="ic-nav-link" to="/themes">
-                                        Themes
-                                    </NavLink>
-                                </li>
-                                <li className="ic-nav-item">
-                                    <NavLink className="ic-nav-link" to="/plugins">
-                                        Plugins
-                                    </NavLink>
-                                </li>
-                                <li className="ic-nav-item">
-                                    <NavLink className="ic-nav-link" to="/about-us">
-                                        about us
-                                    </NavLink>
-                                </li>
-                                <li className="ic-nav-item">
-                                    <NavLink className="ic-nav-link" to="/learn">
-                                        Learn
-                                    </NavLink>
-                                </li>
-                                <li className="ic-nav-item">
-                                    <NavLink className="ic-nav-link" to="/forum">
-                                        Forum
-                                    </NavLink>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div className="ic-header-login-signup">
-                        <ul>
-                            <li>
-                                <NavLink to="/login" className="login ic-btn">
-                                    Log in
-                                </NavLink>
-                            </li>
-                        </ul>
-                        <div className="ic-mobile-menu-icon">
-                            <a
-                                href="#menu"
-                                onClick={handleMenuOpen}
-                                className="ic-mobile-menu-open"
-                            >
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </a>
+                        </div>
+                        <div className="pm-header-right">
+                            <Button link={'/login'} text={'Login'}/>
                         </div>
                     </div>
-                </div>
-            </Container>
-        </header>
+                </Container>
+            </header>
+        </>
     );
 };
 
