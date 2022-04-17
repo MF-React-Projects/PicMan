@@ -6,6 +6,8 @@
     border-radius: 5px;
     text-transform: capitalize;
     transition: all 0.3s ease-in-out;
+    border: none;
+    outline: none;
 }
 .btn-primary:hover {
     background-color: #003DA7;
@@ -16,4 +18,9 @@
 }
 .btn-primary.btn-secondary:hover {
     background-color: #e80000;
+}
+
+.btn-primary:focus{
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }

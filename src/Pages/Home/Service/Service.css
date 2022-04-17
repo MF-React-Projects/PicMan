@@ -1,11 +1,11 @@
-.xg-portfolio-item-v2 {
+.service-item {
     background: no-repeat center center;
     background-size: cover;
     position: relative;
     min-height: 292px;
 }
 
-.xg-portfolio-item-v2 .before {
+.service-item .before {
     position: absolute;
     top: 0;
     left: 0;
@@ -15,21 +15,21 @@
     z-index: 1;
 }
 
-.xg-portfolio-item-v2:hover .xg-portfolio-item-v2-link {
+.service-item:hover .service-item-link {
     box-shadow: none;
 }
 
-.xg-portfolio-item-v2:hover .xg-portfolio-item-v2-link .before {
+.service-item:hover .service-item-link .before {
     -webkit-animation: 1.5s xg-pulse .3s infinite;
     animation: 1.5s xg-pulse .3s infinite;
 }
 
-.xg-portfolio-item-v2:hover .xg-portfolio-item-v2-link .after {
+.service-item:hover .service-item-link .after {
     -webkit-animation: xg-pulse 1.5s infinite;
     animation: xg-pulse 1.5s infinite;
 }
 
-.xg-portfolio-item-v2-content {
+.service-item-content {
     position: relative;
     z-index: 2;
     padding: 47px 30px 15px;
@@ -38,14 +38,14 @@
     flex-direction: column;
 }
 
-.xg-portfolio-item-v2-content h4 {
+.service-item-content h4 {
     letter-spacing: .01em;
     margin-bottom: 30px;
     color: #fff;
     font-size: 1.3125rem;
 }
 
-.xg-portfolio-item-v2-content p {
+.service-item-content p {
     max-width: 260px;
     font-size: 15px;
     line-height: 24px;
@@ -54,18 +54,19 @@
     color: #d9d9d9;
 }
 
-.xg-portfolio-item-v2-link {
-    display: block;
-    width: 42px;
+.service-item-link {
+    display: inline-block;
     height: 42px;
-    border-radius: 50%;
+    border-radius: 5px;
     position: relative;
-    background-color: #1f5152;
-    box-shadow: 0 5px 16px rgba(31, 81, 82, 0.5);
+    background-color: #e80000;
+    border: none;
+    color: #fff;
+    box-shadow: 0 5px 16px rgba(232, 0, 0, 0.5);
 }
 
-.xg-portfolio-item-v2-link .after,
-.xg-portfolio-item-v2-link .before {
+.service-item-link .after,
+.service-item-link .before {
     content: '';
     position: absolute;
     top: 0;
@@ -77,7 +78,7 @@
     background-color: rgba(31, 81, 82, 0.5);
 }
 
-.xg-portfolio-item-v2-link i {
+.service-item-link i {
     position: absolute;
     top: 50%;
     font-size: 1.125rem;
@@ -87,7 +88,7 @@
 }
 
 @media (min-width: 768px) {
-    .xg-portfolio-item-left .xg-portfolio-item-v2-content {
+    .xg-portfolio-item-left .service-item-content {
         text-align: right;
         align-items: flex-end;
     }

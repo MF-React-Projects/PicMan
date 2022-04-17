@@ -1,6 +1,7 @@
 import React from 'react';
 import './Service.css';
 import {useNavigate} from "react-router-dom";
+import {Button} from "react-bootstrap";
 
 const Service = ({service}) => {
     const {id, name, img, description, price} = service;
@@ -12,16 +13,14 @@ const Service = ({service}) => {
     return (
         <>
             <div className="col-md-6">
-                <article className="xg-portfolio-item-v2" style={{backgroundImage: `url(${img})`}}>
+                <article className="service-item" style={{backgroundImage: `url(${img})`}}>
                     <div className="before"></div>
-                    <div className="xg-portfolio-item-v2-content">
+                    <div className="service-item-content">
                         <h4>{name}</h4>
                         <p>{description}</p>
-                        <button onClick={() => navigateToService(id)} className="xg-portfolio-item-v2-link" href="#">
-                            <span className="before"></span>
-
-                            <span className="after"></span>
-                        </button>
+                        <Button onClick={() => navigateToService(id)} className='service-btn' variant='link'>
+                            Book Now
+                        </Button>
                     </div>
                 </article>
             </div>
