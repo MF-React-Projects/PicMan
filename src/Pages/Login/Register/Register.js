@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     useCreateUserWithEmailAndPassword,
     useSendPasswordResetEmail,
@@ -8,7 +8,6 @@ import {
 import './Register.css';
 import auth from '../../../firebase.init';
 import SocialLogin from "../SocialLogin/SocialLogin";
-import Loading from "../../Common/Loading/Loading";
 import {Button, Col, Container, Form, Row, Spinner} from "react-bootstrap";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -61,11 +60,30 @@ const Register = () => {
         //Create user
         createUserWithEmailAndPassword(email, password);
 
-        //Update profile
-        await updateProfile({displayName: name});
+        if(updateError){
+            switch (updateError.code) {
+                case 'auth/requires-recent-login':
+                    toast.error('You must sign in again');
+                    break;
+                case 'auth/user-disabled':
+                    toast.error('User disabled');
+                    break;
+                case 'auth/user-not-found':
+                    toast.error('User not found');
+                    break;
+                case 'auth/wrong-password':
+                    toast.error('Wrong password');
+                    break;
+                default:
+                    toast.error('Something went wrong');
+                    break;
+            }
+        } else if(user){
+            //Update profile
+            await updateProfile({displayName: name});
+        }
+
     }
-
-
 
     if(user){
         navigate('/');

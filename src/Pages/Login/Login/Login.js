@@ -91,11 +91,11 @@ const Login = () => {
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Label>Email address</Form.Label>
-                                    <Form.Control type="email" placeholder="name@example.com" required/>
+                                    <Form.Control ref={emailRef} type="email" placeholder="name@example.com" required/>
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
                                     <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Password" required/>
+                                    <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
                                 </Form.Group>
                                 <Button variant='link' className='text-primary text-decoration-none px-0 mb-2' onClick={resetPassword}>Forget Password?</Button>
                                 <br/>

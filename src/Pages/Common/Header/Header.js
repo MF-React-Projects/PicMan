@@ -41,7 +41,7 @@ const Header = () => {
                                         <Link to='/about' className="pm-nav-link">About</Link>
                                     </li>
                                     <li className="pm-nav-item">
-                                        <Link to='/services' className="pm-nav-link">Services</Link>
+                                        <Link to='/blogs' className="pm-nav-link">Blogs</Link>
                                     </li>
                                 </ul>
                             </Nav>
