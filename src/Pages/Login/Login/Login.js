@@ -74,10 +74,12 @@ const Login = () => {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="Password" />
                                 </Form.Group>
-                                <Button className='btn-primary' type="submit">Login</Button>
+                                <Button variant='link' className='text-primary text-decoration-none px-0 mb-2' onClick={resetPassword}>Forget Password?</Button>
                                 <br/>
-                                <Button variant='link' className='text-primary text-decoration-none px-0' onClick={resetPassword}>Forget Password?</Button>
-
+                                <Button className='btn-primary mb-3' type="submit">Login</Button>
+                                <p className='d-flex'>Don't Have An Account? Please, <Button variant='link' className='text-decoration-none py-0 px-1 border-0' onClick={navigateRegister}>Create Account</Button> Here</p>
+                                <SocialLogin/>
+                                <ToastContainer />
                             </Form>
                         </div>
                     </Col>

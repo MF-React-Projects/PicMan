@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './Banner.css';
 import bannerImg from '../../../images/banner/1.jpg';
-import Button from "../../Common/Button/Button";
 import {Container} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const Banner = () => {
     const [banner, setBanner] = useState({});
@@ -29,7 +29,7 @@ const Banner = () => {
                                 <h4>{title}</h4>
                                 <h3>{name}</h3>
                                 <h5>{description}</h5>
-                                <Button link={'#services'} text={button} btnClass={'mt-5'} secondary/>
+                                <Link to={'#services'} className='btn-default btn-secondary mt-5'>{button}</Link>
                             </div>
 
                         </div>

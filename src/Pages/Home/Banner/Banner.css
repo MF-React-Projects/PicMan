@@ -116,6 +116,10 @@
     letter-spacing: -.1px;
     font-weight: 500
 }
+.banner-section .btn-default:hover {
+    border: 1px solid #fff;
+    color: #fff;
+}
 
 .banner-section .overlay {
     position: absolute;
