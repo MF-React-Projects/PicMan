@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import './Login.css';
-import {Container, Row, Form, Col, Button} from 'react-bootstrap';
+import {Container, Row, Form, Col, Button, Spinner} from 'react-bootstrap';
 import {useSendPasswordResetEmail, useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -26,6 +26,30 @@ const Login = () => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
+
+        // Error handling
+        if(error) {
+            switch (error.code) {
+                case 'auth/user-not-found':
+                    toast.error('User not found');
+                    break;
+                case 'auth/wrong-password':
+                    toast.error('Wrong password');
+                    break;
+                case 'auth/missing-email':
+                    toast.error('User not found with this email');
+                    break;
+                case 'auth/invalid-email':
+                    toast.error('Invalid email');
+                    break;
+                default:
+                    toast.error('Something went wrong');
+                    break;
+            }
+            console.log(error.message);
+        }
+
+        // Sign in with email and password
         signInWithEmailAndPassword(email, password)
     }
 
@@ -33,9 +57,7 @@ const Login = () => {
         navigate(from, {replace: true});
     }
 
-    if (loading || sending) {
-        return <Loading/>
-    }
+
 
     const navigateRegister = () => {
         navigate('/register');
@@ -63,20 +85,37 @@ const Login = () => {
                     <Col lg={6}>
                         <div className="ic-login-content">
                             <h2 className='text-center font-bold'><span>Login</span></h2>
-                            <p className='text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut consequat elit. Mauris ut
-                                arcu rhoncus, commodo tellus sed, </p>
+                            <p className='text-center'>
+                                Join my community and get premium services.
+                            </p>
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Label>Email address</Form.Label>
-                                    <Form.Control type="email" placeholder="name@example.com" />
+                                    <Form.Control type="email" placeholder="name@example.com" required/>
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
                                     <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Password" />
+                                    <Form.Control type="password" placeholder="Password" required/>
                                 </Form.Group>
                                 <Button variant='link' className='text-primary text-decoration-none px-0 mb-2' onClick={resetPassword}>Forget Password?</Button>
                                 <br/>
-                                <Button className='btn-primary mb-3' type="submit">Login</Button>
+                                {
+                                    loading ?
+                                        <Button className='btn-default btnSm mb-3' type="submit" disabled>
+                                            Login
+                                            <Spinner
+                                                as="span"
+                                                animation="border"
+                                                size="sm"
+                                                role="status"
+                                                aria-hidden="true"
+                                                className='ms-2'
+                                            />
+                                        </Button>
+                                        :
+                                        <Button className='btn-default btnSm mb-3' type="submit">Login</Button>
+
+                                }
                                 <p className='d-flex'>Don't Have An Account? Please, <Button variant='link' className='text-decoration-none py-0 px-1 border-0' onClick={navigateRegister}>Create Account</Button> Here</p>
                                 <SocialLogin/>
                                 <ToastContainer />
