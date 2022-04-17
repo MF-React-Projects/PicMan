@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import Header from "./Pages/Common/Header/Header";
 import Footer from "./Pages/Common/Footer/Footer";
 import {Route, Routes} from "react-router-dom";
