@@ -1,44 +1,40 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Banner.css';
 import bannerImg from '../../../images/banner/1.jpg';
-import downArrow from '../../../images/svg/down.svg';
+import Button from "../../Common/Button/Button";
+import {Container} from "react-bootstrap";
 
 const Banner = () => {
+    const [banner, setBanner] = useState({});
+
+    useEffect(() => {
+        fetch('data/banner.json')
+            .then(res => res.json())
+            .then(data => setBanner(data))
+    }, []);
+
+    const {title, name, description, button} = banner;
 
     return (
         <>
-            <div className="picman_tm_hero" id="home">
+            <div className="banner-section" id="home">
                 <div className="overlay"></div>
-
-                <div className="gallery_list_wrap">
-                    <div className="main_background_image" style={{backgroundImage: `url(${bannerImg})`}}></div>
-                </div>
+                <div className="banner-background-image" style={{backgroundImage: `url(${bannerImg})`}}></div>
 
                 <div className="project_list_wrap">
-                    <div className="container">
+                    <Container>
                         <div className="inner_wrap">
 
                             <div className="left_box">
-                                <h4>Hello, I'm</h4>
-                                <h3>Peter Parker</h3>
-                                <h5>A Photographer from New York</h5>
-                                <div className="booking">
-                                    <a href="#contact" className="button"><span>Book a Shoot</span></a>
-                                    <a href="#plans" className="link">View Plans</a>
-                                </div>
+                                <h4>{title}</h4>
+                                <h3>{name}</h3>
+                                <h5>{description}</h5>
+                                <Button link={'#services'} text={button} btnClass={'mt-5'} secondary/>
                             </div>
 
                         </div>
-                    </div>
+                    </Container>
                 </div>
-
-
-                <div className="picman_tm_down">
-                    <a className="anchor" href="#about">
-                        <img src={downArrow} alt="" className="svg"/>
-                    </a>
-                </div>
-
             </div>
         </>
     );

@@ -2,10 +2,10 @@ import React from 'react';
 import './Button.css';
 import {Link} from "react-router-dom";
 
-const Button = ({link, text}) => {
+const Button = ({link, text, btnClass, secondary}) => {
     return (
         <>
-            <Link to={link} className="ic-btn-64 ic-btn">{text}</Link>
+            <Link to={link} className={`btn-primary ${secondary ? 'btn-secondary' : ''} ${btnClass}`}>{text}</Link>
         </>
     );
 };

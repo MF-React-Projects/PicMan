@@ -1,34 +1,11 @@
 
-.picman_tm_hero {
+.banner-section {
     width: 100%;
     height: 100vh;
     clear: both;
     float: left;
     position: relative;
     overflow: hidden
-}
-
-.picman_tm_down {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 60px;
-    z-index: 5;
-    color: #fff
-}
-
-.picman_tm_down .svg {
-    width: 26px;
-    height: 26px;
-    display: block
-}
-
-.picman_tm_down .svg #wheel {
-    animation: scroll ease 2s infinite
-}
-
-.picman_tm_down path {
-    stroke: #fff
 }
 
 @keyframes scroll {
@@ -47,7 +24,7 @@
     }
 }
 
-.picman_tm_hero .project_list_wrap {
+.banner-section .project_list_wrap {
     width: 100%;
     clear: both;
     float: left;
@@ -55,11 +32,13 @@
     position: relative
 }
 
-.picman_tm_hero .project_list_wrap,.picman_tm_hero .project_list_wrap .container,.picman_tm_hero .project_list_wrap .inner_wrap {
+.banner-section .project_list_wrap,
+.banner-section .project_list_wrap .container,
+.banner-section .project_list_wrap .inner_wrap {
     height: 100%
 }
 
-.picman_tm_hero .inner_wrap {
+.banner-section .inner_wrap {
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -77,18 +56,18 @@
     align-items: center
 }
 
-.picman_tm_hero .left_box {
+.banner-section .left_box {
     position: relative;
     width: 500px;
     max-width: 50%;
     padding-top: 10px
 }
 
-.picman_tm_hero .left_box:after {
+.banner-section .left_box:after {
     content: '';
     position: absolute;
     z-index: -1;
-    background-color: black;
+    background-color: #e80000;
     opacity: .5;
     width: 650px;
     height: 650px;
@@ -98,11 +77,21 @@
     border-radius: 100%
 }
 
-.picman_tm_hero .left_box * {
+@media only screen and (max-width: 1366px) {
+    .banner-section .left_box:after {
+        width: 600px;
+        height: 600px;
+        left: 50%;
+        top: 50%;
+        margin: -300px 0 0 -350px;
+    }
+}
+
+.banner-section .left_box * {
     color: #fff
 }
 
-.picman_tm_hero .left_box h4 {
+.banner-section .left_box h4 {
     margin: 0;
     padding: 0;
     line-height: 1;
@@ -112,7 +101,7 @@
     font-weight: 500
 }
 
-.picman_tm_hero .left_box h3 {
+.banner-section .left_box h3 {
     margin: 0;
     padding: 0;
     line-height: 1;
@@ -121,22 +110,7 @@
     margin-bottom: 29px
 }
 
-.picman_tm_hero .right_box {
-    max-height: 100%;
-    height: 100%;
-    overflow-y: scroll
-}
-
-.picman_tm_hero .right_box::-webkit-scrollbar {
-    display: none
-}
-
-.picman_tm_hero .right_box {
-    -ms-overflow-style: none;
-    scrollbar-width: none
-}
-
-.picman_tm_hero .left_box h5 {
+.banner-section .left_box h5 {
     margin: 0;
     padding: 0;
     line-height: 1;
@@ -145,196 +119,7 @@
     font-weight: 500
 }
 
-.picman_tm_hero .booking {
-    width: 100%;
-    margin-top: 50px;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    -ms-flex-direction: row;
-    -o-flex-direction: row;
-    flex-direction: row;
-    -ms-align-items: center;
-    align-items: center;
-    flex-wrap: wrap
-}
-
-.picman_tm_hero .booking .button {
-    letter-spacing: -.1px;
-    display: block;
-    line-height: 1;
-    padding: 23px 35px 19px;
-    border-radius: 5px;
-    text-decoration: none;
-    overflow: hidden;
-    position: relative;
-    white-space: nowrap;
-    text-overflow: ellipsis
-}
-
-.picman_tm_hero .booking .button span {
-    position: relative;
-    z-index: 2
-}
-
-.picman_tm_hero .booking .button:after {
-    content: '';
-    z-index: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    border: 2px solid #34444c;
-    border-radius: 5px;
-    position: absolute;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease
-}
-
-.picman_tm_hero .booking .button:before {
-    position: absolute;
-    content: "";
-    z-index: 0;
-    background-color: #34444c;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    height: 115%;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease
-}
-
-.picman_tm_hero .booking .button:hover:before {
-    height: 0
-}
-
-.picman_tm_hero .booking .button:hover:after {
-    border-color: #fff
-}
-
-.picman_tm_hero .booking .link {
-    letter-spacing: -.1px;
-    text-decoration: none;
-    position: relative;
-    top: 2px
-}
-
-.picman_tm_hero .booking * {
-    margin: 0 35px 10px 0
-}
-
-.picman_tm_hero .booking *:last-child {
-    margin-right: 0
-}
-
-.picman_tm_hero .project_list_wrap .list {
-    margin: 0;
-    list-style-type: none;
-    width: 100%;
-    min-height: 100%;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    -ms-align-items: flex-end;
-    align-items: flex-end
-}
-
-.picman_tm_hero .project_list_wrap .list li {
-    margin: 0;
-    list-style-type: none;
-    margin-bottom: 31px
-}
-
-.picman_tm_hero .project_list_wrap .list li:last-child {
-    margin-bottom: 0
-}
-
-.picman_tm_hero .project_list_wrap .list h3 {
-    margin: 0;
-    line-height: 1
-}
-
-.picman_tm_hero .project_list_wrap .list a {
-    text-decoration: none;
-    color: transparent;
-    font-size: 90px;
-    -webkit-text-stroke: 1px #fff;
-    display: block;
-    position: relative;
-    max-width: 100%;
-    text-align: right;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-    letter-spacing: -.5px;
-    cursor: pointer
-}
-
-.picman_tm_hero .project_list_wrap .list .active a,.picman_tm_hero .project_list_wrap .list a:hover {
-    color: #fff
-}
-
-.picman_tm_hero .gallery_list_wrap {
-    width: 100%;
-    height: 100%;
-    clear: both;
-    float: left;
-    position: absolute;
-    z-index: 1
-}
-
-.picman_tm_hero .gallery_list_wrap ul {
-    margin: 0;
-    list-style-type: none
-}
-
-.picman_tm_hero .gallery_list_wrap ul li {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.2);
-    -webkit-transition: all 1.5s ease;
-    -moz-transition: all 1.5s ease;
-    -ms-transition: all 1.5s ease;
-    -o-transition: all 1.5s ease;
-    transition: all 1.5s ease
-}
-
-.picman_tm_hero .gallery_list_wrap ul li .main {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center
-}
-
-.picman_tm_hero .gallery_list_wrap ul li.active {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-    z-index: 1
-}
-
-.picman_tm_hero .overlay {
+.banner-section .overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -344,30 +129,7 @@
     background-color: rgba(0,0,0,.4)
 }
 
-.picman_tm_hero .glitch_wrap {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden
-}
-
-.glitch {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    -webkit-background-size: cover;
-    background-position: center;
-    z-index: -1!important;
-    opacity: 1;
-    transform: scale(1)
-}
-
-.picman_tm_hero .main_background_image {
+.banner-section .banner-background-image {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -376,11 +138,4 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center
-}
-
-.picman_tm_hero .particle_wrapper {
-    position: relative;
-    float: left;
-    width: 100%;
-    height: 100%
 }

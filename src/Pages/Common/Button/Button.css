@@ -1,14 +1,19 @@
-.ic-btn {
-    display: inline-block;
-    padding: 8px 30px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    background-color: #040D44;
+.btn-primary {
     color: #fff;
-    text-decoration: none;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    display: inline-block;
+    padding: 12px 36px;
+    background-color: #e80000;
+    border-radius: 5px;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover {
+    background-color: #003DA7;
+}
+
+.btn-primary.btn-secondary {
+    background-color: #003DA7;
+}
+.btn-primary.btn-secondary:hover {
+    background-color: #e80000;
 }
