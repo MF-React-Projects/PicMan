@@ -88,8 +88,8 @@ const Footer = () => {
                         <Col md={6}>
                             <p>Copyright © {year} All rights reserved.</p>
                         </Col>
-                        <Col md={6} className="text-right">
-                            <p className='text-right'>
+                        <Col md={6} className="text-end">
+                            <p>
                                 Design & Developed by <strong>Mehedi Foysal</strong>
                             </p>
                         </Col>

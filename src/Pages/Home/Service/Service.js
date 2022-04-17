@@ -2,6 +2,7 @@ import React from 'react';
 import './Service.css';
 import {useNavigate} from "react-router-dom";
 import {Button, Col} from "react-bootstrap";
+import {FaArrowRight} from "@react-icons/all-files/fa/FaArrowRight";
 
 const Service = ({service, index}) => {
     const {id, name, img, description, price} = service;
@@ -20,8 +21,8 @@ const Service = ({service, index}) => {
                         <p>{description}</p>
                         <Button
                             onClick={() => navigateToService(id)}
-                            className='btn-default btn-white'>
-                            Book Now
+                            className='btn-default btn-white btnSm'>
+                            Book Now <FaArrowRight className='ms-2'/>
                         </Button>
                     </div>
                 </article>

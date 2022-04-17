@@ -45,3 +45,6 @@
     display: block;
     color: #d9d9d9;
 }
+.service-item-content button svg{
+    margin-top: -3px;
+}
