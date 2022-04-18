@@ -39,7 +39,7 @@ const Checkout = () => {
                                 <Col md={6}>
                                     <Form.Group className="mb-3" controlId="formEmail">
                                         <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" value={user?.email} placeholder="Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} readOnly/>
+                                        <Form.Control type="email" value={user?.email} placeholder="Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})}/>
                                     </Form.Group>
                                 </Col>
                             </Row>
