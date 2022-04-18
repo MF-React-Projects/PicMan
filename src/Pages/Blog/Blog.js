@@ -4,7 +4,7 @@ import {Container} from "react-bootstrap";
 
 const Blog = () => {
     return (
-        <div style={{padding: '80px 0'}}>
+        <div className='blog-section'>
             <Container>
                 <h1 className='text-center question-header'>Questions</h1>
                 <h4 className='question-title'>1. Difference between authorization and authentication?</h4>
