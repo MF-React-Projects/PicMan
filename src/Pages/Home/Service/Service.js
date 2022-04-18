@@ -8,7 +8,7 @@ const Service = ({service, index}) => {
     const {id, name, img, description, price} = service;
     const navigate = useNavigate();
     const navigateToService = id => {
-        navigate('/service/' + id);
+        navigate('/checkout/' + id);
     }
 
     return (
