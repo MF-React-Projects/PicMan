@@ -2,7 +2,7 @@ import React from 'react';
 import './Checkout.css';
 import {useParams} from "react-router-dom";
 import {useForm} from 'react-hook-form';
-import {Col, Container, Form, Row} from "react-bootstrap";
+import {Button, Col, Container, Form, Row} from "react-bootstrap";
 
 const Checkout = () => {
     const {serviceId} = useParams();
@@ -14,7 +14,7 @@ const Checkout = () => {
             <Container>
                 <h2 className='text-center mb-5'>Please Checkout your booking</h2>
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                    <Row >
+                    <Row>
                         <Col md={6}>
                             <Form.Group className="mb-3" controlId="formFirstName">
                                 <Form.Label>First Name</Form.Label>
@@ -28,7 +28,7 @@ const Checkout = () => {
                             </Form.Group>
                         </Col>
                     </Row>
-                    <Row >
+                    <Row>
                         <Col md={6}>
                             <Form.Group className="mb-3" controlId="formEmail">
                                 <Form.Label>Email</Form.Label>
@@ -45,7 +45,7 @@ const Checkout = () => {
                     {/* Selected service */}
                     <Form.Group className="mb-3" controlId="formService">
                         <Form.Label>Service</Form.Label>
-                        <select className='form-control' {...register("Services", { required: true })}>
+                        <select className='form-control' {...register("Services", {required: true})}>
                             <option value={serviceId}>{serviceId}</option>
                         </select>
                     </Form.Group>
@@ -53,24 +53,21 @@ const Checkout = () => {
                         <Form.Label>Address</Form.Label>
                         <Form.Control type="text" placeholder="Address" {...register("Address", {required: true, maxLength: 100})}/>
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formCity">
-                        <Form.Label>City</Form.Label>
-                        <Form.Control type="text" placeholder="City" {...register("City", {required: true, maxLength: 100})}/>
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formState">
-                        <Form.Label>State</Form.Label>
-                        <Form.Control type="text" placeholder="State" {...register("State", {required: true, maxLength: 100})}/>
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formZip">
-                        <Form.Label>Zip</Form.Label>
-                        <Form.Control type="text" placeholder="Zip" {...register("Zip", {required: true, maxLength: 100})}/>
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formCountry">
-                        <Form.Label>Country</Form.Label>
-                        <Form.Control type="text" placeholder="Country" {...register("Country", {required: true, maxLength: 100})}/>
-                    </Form.Group>
-
-                    <input type="submit" />
+                    <Row>
+                        <Col md={6}>
+                            <Form.Group className="mb-3" controlId="formCountry">
+                                <Form.Label>Country</Form.Label>
+                                <Form.Control type="text" placeholder="Country" {...register("Country", {required: true, maxLength: 100})}/>
+                            </Form.Group>
+                        </Col>
+                        <Col md={6}>
+                            <Form.Group className="mb-3" controlId="formZip">
+                                <Form.Label>Zip</Form.Label>
+                                <Form.Control type="text" placeholder="Zip" {...register("Zip", {required: true, maxLength: 100})}/>
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    <Button className='btn-default btnSm mb-3' type="submit">Login</Button>
                 </Form>
             </Container>
         </div>
