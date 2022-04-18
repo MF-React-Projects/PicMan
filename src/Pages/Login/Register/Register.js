@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useRef, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     useCreateUserWithEmailAndPassword,
     useSendPasswordResetEmail,
@@ -8,9 +8,14 @@ import {
 import './Register.css';
 import auth from '../../../firebase.init';
 import SocialLogin from "../SocialLogin/SocialLogin";
-import Loading from "../../Common/Loading/Loading";
+import {Button, Col, Container, Form, Row, Spinner} from "react-bootstrap";
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+    const nameRef = useRef('');
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
     const [agree, setAgree] = useState(false);
     const [
         createUserWithEmailAndPassword,
@@ -27,39 +32,118 @@ const Register = () => {
 
     const handleRegister = async event =>{
         event.preventDefault();
-        const name = event.target.name.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
+
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        //Error handling
+        if(error){
+            switch (error.code) {
+                case 'auth/email-already-in-use':
+                    toast.error('Email already in use');
+                    break;
+                case 'auth/invalid-email':
+                    toast.error('Invalid email');
+                    break;
+                case 'auth/weak-password':
+                    toast.error('Weak password');
+                    break;
+                default:
+                    toast.error('Something went wrong');
+                    break;
+            }
+        } else if(!agree){
+            toast.error("You must agree to the terms and conditions");
+            return;
+        }
+        //Create user
         createUserWithEmailAndPassword(email, password);
 
-        await updateProfile({displayName: name});
+        if(updateError){
+            switch (updateError.code) {
+                case 'auth/requires-recent-login':
+                    toast.error('You must sign in again');
+                    break;
+                case 'auth/user-disabled':
+                    toast.error('User disabled');
+                    break;
+                case 'auth/user-not-found':
+                    toast.error('User not found');
+                    break;
+                case 'auth/wrong-password':
+                    toast.error('Wrong password');
+                    break;
+                default:
+                    toast.error('Something went wrong');
+                    break;
+            }
+        } else if(user){
+            //Update profile
+            await updateProfile({displayName: name});
+        }
+
+    }
+
+    if(user){
         navigate('/');
     }
 
-    if(loading || updating) {
-        return <Loading />
-    }
-
     return (
-        <div className='register-form'>
-            <h2 style={{textAlign: 'center'}}>Please Register</h2>
-            <form onSubmit={handleRegister}>
-                <input type="text" name="name" id="" placeholder='Your Name' />
-
-                <input type="email" name="email" id="" placeholder='Email Address' required />
-
-                <input type="password" name="password" id="" placeholder='Password' required />
-                <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" />
-                {/* <label className={agree ? 'ps-2': 'ps-2 text-danger'} htmlFor="terms">Accept Genius Car Terms and Conditions</label> */}
-                <label className={`ps-2 ${agree ? '' : 'text-danger'}`} htmlFor="terms">Accept Genius Car Terms and Conditions</label>
-                <input
-                    disabled={!agree}
-                    className='w-50 mx-auto btn btn-primary mt-2'
-                    type="submit"
-                    value="Register" />
-            </form>
-            <p>Already have an account? <Link to="/login" className='text-danger pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link> </p>
-            <SocialLogin/>
+        <div className="login-wrapper">
+            <Container>
+                <Row className='justify-content-center'>
+                    <Col lg={6}>
+                        <div className="ic-login-content">
+                            <h2 className='text-center font-bold'><span>Register</span></h2>
+                            <p className='text-center'>
+                                Join my community and get premium services.
+                            </p>
+                            <Form onSubmit={handleRegister}>
+                                <Form.Group className="mb-3" controlId="formName">
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control ref={nameRef} type="text" placeholder="Enter name" required/>
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control ref={emailRef} type="email" placeholder="name@example.com" required/>
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
+                                </Form.Group>
+                                <Form.Group className="" controlId="formTerms">
+                                    <Form.Check
+                                        type="checkbox"
+                                        label="I agree to the terms and conditions"
+                                        onChange={() => setAgree(!agree)}
+                                    />
+                                </Form.Group>
+                                <br/>
+                                {
+                                    loading ?
+                                        <Button className='btn-default btnSm mb-3' type="submit" disabled>
+                                            Register
+                                            <Spinner
+                                                as="span"
+                                                animation="border"
+                                                size="sm"
+                                                role="status"
+                                                aria-hidden="true"
+                                                className='ms-2'
+                                            />
+                                        </Button>
+                                        :
+                                        <Button className='btn-default btnSm mb-3' type="submit">Register</Button>
+                                }
+                                <p className='d-flex'>Already Have An Account? Please, <Button variant='link' className='text-decoration-none py-0 px-1 border-0' onClick={navigateLogin}>Login</Button> Here</p>
+                                <SocialLogin/>
+                                <ToastContainer />
+                            </Form>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 };

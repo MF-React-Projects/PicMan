@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Video Shoot",
+    "price": "300",
+    "description": "I provide video service for your business, I can take your business to the next level. I'm expert at wedding video shot. Each video is unique and I can make it your own. ",
+    "img": "https://i.postimg.cc/SNZzj7ck/pexels-l-minh-3062532-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Photo Retouching",
+    "price": "100",
+    "description": "I'm a professional Photoshop Editing and design expert. I'll fulfill your all Photoshop & Photo Editing, retouching, correcting, background removing, image editing needs.",
+    "img": "https://i.postimg.cc/J47P9x1L/pexels-pavel-danilyuk-6443058-1.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Video Editing",
+    "price": "150",
+    "description": "I provide video editing service. After each video shoot I can edit your video to make it perfect for your business. I can make your video look perfect and professional.",
+    "img": "https://i.postimg.cc/qM7xm7LB/pexels-caio-56759-1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Gadget Renting",
+    "price": "180",
+    "description": "I provide gadget renting service. I rent some of the best gadgets for your business. You can rent any gadget you want. Such as: camera, projector, printer, etc.",
+    "img": "https://i.postimg.cc/Ssrcd0Yz/jason-blackeye-IBLo7-N4z94-unsplash-1.jpg"
+  }
+]

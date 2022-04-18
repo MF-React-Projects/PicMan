@@ -1,47 +1,129 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
+import './Login.css';
+import {Container, Row, Form, Col, Button, Spinner} from 'react-bootstrap';
+import {useSendPasswordResetEmail, useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
+import auth from '../../../firebase.init';
+import SocialLogin from "../SocialLogin/SocialLogin";
+import Loading from "../../Common/Loading/Loading";
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        // Error handling
+        if(error) {
+            switch (error.code) {
+                case 'auth/user-not-found':
+                    toast.error('User not found');
+                    break;
+                case 'auth/wrong-password':
+                    toast.error('Wrong password');
+                    break;
+                case 'auth/missing-email':
+                    toast.error('User not found with this email');
+                    break;
+                case 'auth/invalid-email':
+                    toast.error('Invalid email');
+                    break;
+                default:
+                    toast.error('Something went wrong');
+                    break;
+            }
+            console.log(error.message);
+        }
+
+        // Sign in with email and password
+        signInWithEmailAndPassword(email, password)
+    }
+
+    if (user) {
+        navigate(from, {replace: true});
+    }
+
+
+
+    const navigateRegister = () => {
+        navigate('/register');
+    }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast("Email sent to reset password", {
+                position: toast.POSITION.TOP_CENTER
+            });
+        } else {
+            toast('please enter your email address');
+        }
+    }
+
+    //redirect user to previous page
+    let from = location.state?.from?.pathname || "/";
 
     return (
-        <div className='container w-50 mx-auto'>
-            <div className="ic-login-content">
-                <h2><span>Login</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut consequat elit. Mauris ut arcu rhoncus, commodo tellus sed, </p>
-                <form action="">
-                    <div className="form-group">
-                        <input name="username" type="text" placeholder="Enter username or email" className="form-control"/>
-                    </div>
-                    <div className="form-group">
-                        <input name="password" type="password" placeholder="Enter Password" className="form-control"/>
-                    </div>
-                    <div className="form-group mb-20">
-                        <div className="row">
-                            <div className="col-lg-6">
-                                <div className="custom-control custom-checkbox">
-                                    <input type="checkbox" id="accept-terms" name="accept-terms" className="custom-control-input"/>
-                                    <label className="custom-control-label" htmlFor="accept-terms">Remember Me</label>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 text-right">
-                                <a href="">Forgot Password?</a>
-                            </div>
+        <div className="login-wrapper">
+            <Container>
+                <Row className='justify-content-center'>
+                    <Col lg={6}>
+                        <div className="ic-login-content">
+                            <h2 className='text-center font-bold'><span>Login</span></h2>
+                            <p className='text-center'>
+                                Join my community and get premium services.
+                            </p>
+                            <Form onSubmit={handleSubmit}>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control ref={emailRef} type="email" placeholder="name@example.com" required/>
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
+                                </Form.Group>
+                                <Button variant='link' className='text-primary text-decoration-none px-0 mb-2' onClick={resetPassword}>Forget Password?</Button>
+                                <br/>
+                                {
+                                    loading ?
+                                        <Button className='btn-default btnSm mb-3' type="submit" disabled>
+                                            Login
+                                            <Spinner
+                                                as="span"
+                                                animation="border"
+                                                size="sm"
+                                                role="status"
+                                                aria-hidden="true"
+                                                className='ms-2'
+                                            />
+                                        </Button>
+                                        :
+                                        <Button className='btn-default btnSm mb-3' type="submit">Login</Button>
+
+                                }
+                                <p className='d-flex'>Don't Have An Account? Please, <Button variant='link' className='text-decoration-none py-0 px-1 border-0' onClick={navigateRegister}>Create Account</Button> Here</p>
+                                <SocialLogin/>
+                                <ToastContainer />
+                            </Form>
                         </div>
-                    </div>
-                    <button type="submit" className="btn-default btn-rounded w-100 mb-40">Login my Account</button>
-                    <div className="ic-social-signup">
-                        <h4>Or Login With</h4>
-                        <ul>
-                            <li>
-                                <a href=""><i className="flaticon-facebook"></i>Facebook</a>
-                            </li>
-                            <li>
-                                <a href="" className="social-google"><i className="flaticon-google-symbol"></i>Google</a>
-                            </li>
-                        </ul>
-                        <p>Don't Have An Account? Please, <a href="signup.html">Create Account</a> Here</p>
-                    </div>
-                </form>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 };

@@ -1,0 +1,143 @@
+
+.banner-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0)
+    }
+
+    30% {
+        transform: translateY(60px)
+    }
+}
+
+@media(max-width: 1600px) {
+    .picman_tm_down {
+        bottom:30px
+    }
+}
+
+.banner-section .project_list_wrap {
+    width: 100%;
+    clear: both;
+    float: left;
+    z-index: 3;
+    position: relative
+}
+
+.banner-section .project_list_wrap,
+.banner-section .project_list_wrap .container,
+.banner-section .project_list_wrap .inner_wrap {
+    height: 100%
+}
+
+.banner-section .inner_wrap {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    padding: 120px 0;
+    width: 100%;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    -ms-align-items: center;
+    align-items: center
+}
+
+.banner-section .left_box {
+    position: relative;
+    width: 500px;
+    max-width: 50%;
+    padding-top: 10px
+}
+
+.banner-section .left_box:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: #e80000;
+    opacity: .5;
+    width: 650px;
+    height: 650px;
+    left: 50%;
+    top: 50%;
+    margin: -325px 0 0 -350px;
+    border-radius: 100%
+}
+
+@media only screen and (max-width: 1366px) {
+    .banner-section .left_box:after {
+        width: 600px;
+        height: 600px;
+        left: 50%;
+        top: 50%;
+        margin: -300px 0 0 -350px;
+    }
+}
+
+.banner-section .left_box * {
+    color: #fff
+}
+
+.banner-section .left_box h4 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 30px;
+    letter-spacing: -.1px;
+    margin-bottom: 24px;
+    font-weight: 500
+}
+
+.banner-section .left_box h3 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 78px;
+    letter-spacing: -.1px;
+    margin-bottom: 29px
+}
+
+.banner-section .left_box h5 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 26px;
+    letter-spacing: -.1px;
+    font-weight: 500
+}
+.banner-section .btn-default:hover {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.banner-section .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(0,0,0,.4)
+}
+
+.banner-section .banner-background-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center
+}

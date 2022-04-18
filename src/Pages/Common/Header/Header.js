@@ -1,11 +1,18 @@
 import React from 'react';
 import './Header.css';
+import { signOut } from 'firebase/auth';
 import {Container, Nav} from "react-bootstrap";
 import logo from '../../../images/logo.png';
 import {Link} from "react-router-dom";
-import Button from "../Button/Button";
+import {useAuthState} from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+
+    const handleSignOut = () => {
+        signOut(auth);
+    };
 
     return (
         <>
@@ -33,6 +40,9 @@ const Header = () => {
                                     <li className="pm-nav-item">
                                         <Link to='/about' className="pm-nav-link">About</Link>
                                     </li>
+                                    <li className="pm-nav-item">
+                                        <Link to='/blogs' className="pm-nav-link">Blogs</Link>
+                                    </li>
                                 </ul>
                             </Nav>
                             <div className="pm-mobile-menu-icon">
@@ -44,7 +54,15 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="pm-header-right">
-                            <Button link={'/login'} text={'Login'}/>
+                            {
+                                user ?
+                                    <button className='btn-default' onClick={handleSignOut}>Logout</button>
+                                    :
+                                    <>
+                                        <Link to={'/login'} className='btn-default btnSm'>Login</Link>
+                                        <Link to={'/register'} className='btn-default btn-secondary ms-3 btnSm'>Register</Link>
+                                    </>
+                            }
                         </div>
                     </div>
                 </Container>
