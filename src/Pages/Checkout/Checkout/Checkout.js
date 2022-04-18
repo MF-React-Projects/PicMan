@@ -67,7 +67,7 @@ const Checkout = () => {
                             </Form.Group>
                         </Col>
                     </Row>
-                    <Button className='btn-default btnSm mb-3' type="submit">Login</Button>
+                    <Button className='btn-default btnSm mb-3' type="submit">Checkout</Button>
                 </Form>
             </Container>
         </div>
