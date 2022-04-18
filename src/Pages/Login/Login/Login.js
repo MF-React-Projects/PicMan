@@ -53,12 +53,6 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
 
-    if (user) {
-        navigate(from, {replace: true});
-    }
-
-
-
     const navigateRegister = () => {
         navigate('/register');
     }
@@ -75,6 +69,10 @@ const Login = () => {
 
     //redirect user to previous page
     let from = location.state?.from?.pathname || "/";
+
+    if (user) {
+        navigate(from, {replace: true});
+    }
 
     return (
         <div className="login-wrapper">

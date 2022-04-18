@@ -23,7 +23,7 @@ const Blogs = () => {
                 </div>
                 <Row className='mb-5'>
                     {
-                        blogs.map((blog, index) => <Blog key={index} blog={blog}/>)
+                        blogs.map(blog => <Blog key={blog.id} blog={blog}/>)
                     }
                 </Row>
                 <div className="text-center mt-4">

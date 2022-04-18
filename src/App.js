@@ -9,9 +9,9 @@ import NotFound from "./Pages/Common/NotFound/NotFound";
 import Service from "./Pages/Home/Service/Service";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
-import Blog from "./Pages/Blog/Blog";
 import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
 import Checkout from "./Pages/Checkout/Checkout/Checkout";
+import Blog from "./Pages/Blog/Blog";
 
 function App() {
     return (

@@ -18,16 +18,9 @@ const About = () => {
                             <h3 className='about-label'>About Me</h3>
                             <h2 className='about-title'>Hi, I'm <br/><span>Mehedi Hasan</span></h2>
                             <p className='mb-4'>
-                                I'm a Full Stack WordPress Developer. I Developed so many themes and plugins since 2016. I love doing this job and I work with passion.
+                                I'm a Full Stack WordPress Developer. I Developed so many themes and plugins since 2016. I love doing this job and I work with passion. My mission is to become a Full Stack Web Developer. Whereas currently I've experience in Full Stack WordPress Development. In 2022 I want to be a kickass Web Developer, So I hope I can reach my goal quickly.
                             </p>
 
-                            <h4 className='about-item-title'>My Mission</h4>
-                            <p className='mb-4'>
-                                My mission is to become a Full Stack Web Developer. Whereas currently I've experience in Full Stack WordPress Development.
-                            </p>
-
-                            <h4 className='about-item-title'>My Goal</h4>
-                            <p>In 2022 I'll be a kickass Web Developer, So I hope I can reach my goal quickly.</p>
                         </div>
                     </Col>
                 </Row>
