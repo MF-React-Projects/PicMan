@@ -22,6 +22,7 @@ a{
 }
 .btn-default:hover {
     background-color: transparent;
+    border:1px solid #e80000;
     color: #e80000;
 }
 
@@ -38,7 +39,11 @@ a{
     box-shadow: none;
     -webkit-box-shadow: none;
 }
-
+.btn-default.disabled, .btn-default:disabled {
+    color: #fff;
+    background-color: #e93737;
+    border-color: #e93737;
+}
 .btn-default.btn-white{
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.9);

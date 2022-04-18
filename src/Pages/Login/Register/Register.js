@@ -134,7 +134,7 @@ const Register = () => {
                                             />
                                         </Button>
                                         :
-                                        <Button className='btn-default btnSm mb-3' type="submit">Register</Button>
+                                        <Button className='btn-default btnSm mb-3' type="submit" disabled={!agree}>Register</Button>
                                 }
                                 <p className='d-flex'>Already Have An Account? Please, <Button variant='link' className='text-decoration-none py-0 px-1 border-0' onClick={navigateLogin}>Login</Button> Here</p>
                                 <SocialLogin/>
