@@ -2,10 +2,9 @@ import React, {useRef} from 'react';
 import './Login.css';
 import {Container, Row, Form, Col, Button, Spinner} from 'react-bootstrap';
 import {useSendPasswordResetEmail, useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
-import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from "../SocialLogin/SocialLogin";
-import Loading from "../../Common/Loading/Loading";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -46,7 +45,6 @@ const Login = () => {
                     toast.error('Something went wrong');
                     break;
             }
-            console.log(error.message);
         }
 
         // Sign in with email and password

@@ -6,7 +6,6 @@ import {Route, Routes} from "react-router-dom";
 import Home from "./Pages/Home/Home/Home";
 import About from "./Pages/About/About";
 import NotFound from "./Pages/Common/NotFound/NotFound";
-import Service from "./Pages/Home/Service/Service";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
 import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
@@ -20,6 +19,11 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/home' element={<Home/>}/>
+                <Route path={'/checkout/'} element={
+                    <RequireAuth>
+                        <Checkout/>
+                    </RequireAuth>
+                }/>
                 <Route path={'/checkout/:serviceId'} element={
                     <RequireAuth>
                         <Checkout/>

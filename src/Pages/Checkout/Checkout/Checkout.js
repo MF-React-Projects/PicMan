@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './Checkout.css';
 import {useParams} from "react-router-dom";
 import {useForm} from 'react-hook-form';
@@ -33,25 +33,24 @@ const Checkout = () => {
                                 <Col md={6}>
                                     <Form.Group className="mb-3" controlId="formUsername">
                                         <Form.Label>Username</Form.Label>
-                                        <Form.Control type="text" value={user?.displayName} placeholder="Username" {...register("Username", {required: true, maxLength: 100})}/>
+                                        <Form.Control type="text" placeholder="Username"{...register("username", {required: true, maxLength: 100})}/>
                                     </Form.Group>
                                 </Col>
                                 <Col md={6}>
                                     <Form.Group className="mb-3" controlId="formEmail">
                                         <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" value={user?.email} placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} readOnly/>
+                                        <Form.Control type="email" value={user?.email} placeholder="Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} readOnly/>
                                     </Form.Group>
                                 </Col>
                             </Row>
                             <Form.Group className="mb-3" controlId="formPhone">
                                 <Form.Label>Phone</Form.Label>
-                                <Form.Control type="text" placeholder="Phone" {...register("Phone", {required: true, maxLength: 100})}/>
+                                <Form.Control type="text" placeholder="Phone" {...register("phone", {required: true, maxLength: 100})}/>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formAddress">
                                 <Form.Label>Address</Form.Label>
-                                <Form.Control type="text" placeholder="Address" {...register("Address", {required: true, maxLength: 100})}/>
+                                <Form.Control type="text" placeholder="Address" {...register("address", {required: true, maxLength: 100})}/>
                             </Form.Group>
-
                             <Button className='btn-default btnSm mb-3' type="submit">Checkout</Button>
                         </Form>
                     </Col>

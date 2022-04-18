@@ -2,7 +2,6 @@ import React, {useRef, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     useCreateUserWithEmailAndPassword,
-    useSendPasswordResetEmail,
     useUpdateProfile
 } from 'react-firebase-hooks/auth';
 import './Register.css';
