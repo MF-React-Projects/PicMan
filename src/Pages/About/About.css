@@ -1,0 +1,26 @@
+.about-section{
+  padding: 60px 0;
+}
+
+.about-label{
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.about-title{
+  font-family: 'Yeseva One', cursive;
+  font-size: 60px;
+  line-height: 80px;
+  color: #333333;
+}
+
+.about-title span{
+  color: #e80000;
+}
+
+.about-item-title{
+  color: #003DA7;
+}
+
+
