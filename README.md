@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# PicMan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PicMan is a personal portfolio website. As a Photographer, I have been creating this website to showcase my work. Any feedback is welcome.
+
+## Live Link
+[PicMan](https://picman-da677.firebaseapp.com/)
+
+## Site Features
+
+* Personal Portfolio Website
+* Book Services
+* Packages Use
+    * [React Bootstrap](https://react-bootstrap.github.io/)
+    * [React Router](https://reactrouter.com/)
+    * [Firebase](https://firebase.google.com/)
+    * [React Firebase Hooks](https://github.com/CSFrequency/react-firebase-hooks)
+    * [React Icons](https://react-icons.github.io/react-icons/)
+    * [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+* Stylized 404 Page
+
 
 ## Available Scripts
 
