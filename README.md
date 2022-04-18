@@ -17,6 +17,8 @@ PicMan is a personal portfolio website. As a Photographer, I have been creating 
     * [React Icons](https://react-icons.github.io/react-icons/)
     * [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
 * Stylized 404 Page
+* Quick social login
+* Checkout Page
 
 
 ## Available Scripts
