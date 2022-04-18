@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "How to take a photo with your phone",
+    "date": "2020-01-17",
+    "thumbnail": "https://i.postimg.cc/YCK4fzfQ/Untitled-1.png",
+    "tags": [
+      "video",
+      "shoot"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Best camera for taking photos in the dark",
+    "date": "2021-01-01",
+    "thumbnail": "https://i.postimg.cc/Y9s046CG/Untitled-2.png",
+    "tags": [
+      "video",
+      "shoot"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Video editing in Adobe Premiere Pro",
+    "date": "2022-01-01",
+    "thumbnail": "https://i.postimg.cc/s1F2m3S3/Untitled-3.png",
+    "tags": [
+      "video",
+      "shoot"
+    ]
+  }
+]
