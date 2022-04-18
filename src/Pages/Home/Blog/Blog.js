@@ -14,11 +14,14 @@ const Blog = ({blog}) => {
                 <div className="blog-content">
                     <ul className="post-meta list-unstyled">
                         <li>
-                            {tags.map((tag, index) => {
-                                return (
-                                    <span>{tag}</span>
-                                )
-                            })}
+                            {
+                                tags.map((tag, index) => {
+                                    let lastIndex = index === tags.length - 1;
+                                    return (
+                                        <span key={index}>{tag}{!lastIndex ? ', ': ''}</span>
+                                    )
+                                })
+                            }
                         </li>
                         <li>5 Comments</li>
                     </ul>
