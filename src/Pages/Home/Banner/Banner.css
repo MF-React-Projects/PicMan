@@ -142,3 +142,57 @@
     background-size: cover;
     background-position: center
 }
+
+
+@media(max-width: 1040px) {
+    .banner-section .left_box {
+        padding: 50px 40px 40px;
+        border-radius: 15px;
+        max-width: 60%;
+    }
+    .banner-section .left_box:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #e80000;
+        opacity: .5;
+        border-radius: 15px;
+    }
+    .banner-section .left_box:after {
+        opacity: 0;
+    }
+    .banner-section .left_box h3 {
+        font-size: 36px;
+        margin-bottom: 20px
+    }
+    .banner-section .left_box h4 {
+        font-size: 26px;
+        margin-bottom: 22px;
+    }
+    .banner-section .left_box h5 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+@media(max-width: 767px) {
+    .banner-section{
+        height: auto;
+    }
+    .banner-section .inner_wrap{
+        padding: 60px 0;
+    }
+    .banner-section .left_box {
+        max-width: 100%;
+    }
+    .banner-section .left_box:before {
+        display: none;
+    }
+    .banner-section .overlay {
+        background-color: rgba(0,0,0,.5)
+    }
+}

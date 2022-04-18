@@ -15,13 +15,15 @@ const Footer = () => {
     const year = today.getFullYear();
 
     const [user] = useAuthState(auth);
-
+    const handleSignOut = () => {
+        signOut(auth);
+    };
     return (
         <footer className='footer'>
             <div className="footer-top">
                 <Container>
                     <Row>
-                        <Col md={4}>
+                        <Col md={12} lg={4}>
                             <div className="footer-about">
                                 <img src={logo} alt="logo" className="footer-logo mb-4"/>
                                 <p>
@@ -31,7 +33,7 @@ const Footer = () => {
                                 </p>
                             </div>
                         </Col>
-                        <Col md={{span: 3, offset: 2}}>
+                        <Col md={6} lg={{span: 3, offset: 2}}>
                             <div className="footer-contact">
                                 <h4 className='footer-title'>Contact Me</h4>
                                 <p>
@@ -50,7 +52,7 @@ const Footer = () => {
                                 </p>
                             </div>
                         </Col>
-                        <Col md={3}>
+                        <Col md={6} lg={3} >
                             <div className="footer-links">
                                 <h4 className='footer-title'>Quick Links</h4>
                                 <ul>
@@ -66,7 +68,7 @@ const Footer = () => {
                                     {
                                         user ?
                                             <li>
-                                                <button onClick={() => signOut()} className='btn btn-link'>Logout</button>
+                                                <button onClick={handleSignOut} className='btn btn-link p-0'>Logout</button>
                                             </li>
                                             :
                                             <>
@@ -85,10 +87,10 @@ const Footer = () => {
             <div className="footer-copyright">
                 <Container>
                     <Row>
-                        <Col md={6}>
+                        <Col md={6} className='mb-2 mb-md-0'>
                             <p>Copyright © {year} All rights reserved.</p>
                         </Col>
-                        <Col md={6} className="text-end">
+                        <Col md={6} className="footer-right">
                             <p>
                                 Design & Developed by <strong>Mehedi Foysal</strong>
                             </p>

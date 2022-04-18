@@ -21,11 +21,13 @@
 .footer-links ul li {
     margin-bottom: 5px;
 }
+.footer-links ul li button,
 .footer-links ul li a{
     color: #5a5554;
     font-weight: 500;
     font-size: 15px;
     text-transform: uppercase;
+    text-decoration: none;
 }
 .footer-links ul li a:hover{
     color: #e80000;
@@ -38,4 +40,21 @@
 
 .footer-copyright p{
     margin: 0;
+}
+.footer-right{
+    text-align: right;
+}
+@media(max-width: 991px) {
+    .footer-about{
+        margin-bottom: 40px;
+    }
+}
+
+@media(max-width: 767px) {
+    .footer-copyright{
+        text-align: center;
+    }
+    .footer-right{
+        text-align: center;
+    }
 }
