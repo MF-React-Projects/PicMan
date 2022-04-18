@@ -14,7 +14,7 @@ const Header = () => {
                 <Container>
                     <div className="pm-header-menu-wrapper">
                         <div className="pm-header-logo">
-                            <Link to="index.php" className="pm-logo">
+                            <Link to="/" className="pm-logo">
                                 <img src={logo} className="img-fluid" alt="logo"/>
                             </Link>
                         </div>
