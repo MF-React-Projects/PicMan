@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import {
     useCreateUserWithEmailAndPassword,
     useUpdateProfile
@@ -24,6 +24,7 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const navigateLogin = () =>{
         navigate('/login');
@@ -84,8 +85,10 @@ const Register = () => {
 
     }
 
+    //redirect user to previous page
+    let from = location.state?.from?.pathname || "/";
     if(user){
-        navigate('/');
+        navigate(from, {replace: true});
     }
 
     return (

@@ -11,8 +11,14 @@ import 'react-toastify/dist/ReactToastify.css';
 const Checkout = () => {
     const {serviceId} = useParams();
     const [user] = useAuthState(auth);
+    console.log(serviceId)
 
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm({
+        defaultValues: {
+            username: user?.displayName,
+            email: user?.email,
+        }
+    });
     const onSubmit = data => {
         toast.success('Thank you for the booking');
 
@@ -33,23 +39,55 @@ const Checkout = () => {
                                 <Col md={6}>
                                     <Form.Group className="mb-3" controlId="formUsername">
                                         <Form.Label>Username</Form.Label>
-                                        <Form.Control type="text" placeholder="Username"{...register("username", {required: true, maxLength: 100})}/>
+                                        <Form.Control type="text" placeholder="Username"{...register("username", {required: true, maxLength: 100})} readOnly/>
+                                        <small className='text-danger'>
+                                            {errors.username?.type === 'required' && "Username is required"}
+                                        </small>
                                     </Form.Group>
                                 </Col>
                                 <Col md={6}>
                                     <Form.Group className="mb-3" controlId="formEmail">
                                         <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" value={user?.email} placeholder="Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})}/>
+                                        <Form.Control type="email" placeholder="Email" {...register("email", {
+                                            required: {
+                                                value: true,
+                                                message: 'Email is Required'
+                                            },
+                                            pattern: {
+                                                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                                message: 'Provide a valid Email'
+                                            }
+                                        })} readOnly/>
+                                        <small className="text-danger">
+                                            {errors.email?.type === 'required' && errors.email.message}
+                                            {errors.email?.type === 'pattern' && errors.email.message}
+                                        </small>
                                     </Form.Group>
                                 </Col>
                             </Row>
                             <Form.Group className="mb-3" controlId="formPhone">
                                 <Form.Label>Phone</Form.Label>
-                                <Form.Control type="text" placeholder="Phone" {...register("phone", {required: true, maxLength: 100})}/>
+                                <Form.Control type="text" placeholder="Phone" {...register("phone", {
+                                    required: {
+                                        value: true,
+                                        message: 'Phone is Required'
+                                    }
+                                })}/>
+                                <small className="text-danger">
+                                    {errors.phone?.type === 'required' && errors.phone.message}
+                                </small>
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formAddress">
                                 <Form.Label>Address</Form.Label>
-                                <Form.Control type="text" placeholder="Address" {...register("address", {required: true, maxLength: 100})}/>
+                                <Form.Control type="text" placeholder="Address" {...register("address", {
+                                    required: {
+                                        value: true,
+                                        message: 'Address is Required'
+                                    }
+                                })}/>
+                                <small className="text-danger">
+                                    {errors.address?.type === 'required' && errors.address.message}
+                                </small>
                             </Form.Group>
                             <Button className='btn-default btnSm mb-3' type="submit">Checkout</Button>
                         </Form>

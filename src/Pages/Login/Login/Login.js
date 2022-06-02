@@ -51,10 +51,6 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
 
-    const navigateRegister = () => {
-        navigate('/register');
-    }
-
     const resetPassword = async () => {
         const email = emailRef.current.value;
         if (email) {
@@ -110,7 +106,7 @@ const Login = () => {
                                         <Button className='btn-default btnSm mb-3' type="submit">Login</Button>
 
                                 }
-                                <p className='d-flex'>Don't Have An Account? Please, <Button variant='link' className='text-decoration-none py-0 px-1 border-0' onClick={navigateRegister}>Create Account</Button> Here</p>
+                                <p className='d-flex'>Don't Have An Account? Please, <Button variant='link' className='text-decoration-none py-0 px-1 border-0' onClick={() => navigate('/register')}>Create Account</Button> Here</p>
                                 <SocialLogin/>
                                 <ToastContainer />
                             </Form>

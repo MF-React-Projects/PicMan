@@ -2,7 +2,7 @@ import React from 'react';
 import './SocialLogin.css';
 import {useSignInWithGithub, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import Loading from "../../Common/Loading/Loading";
 import {FaGoogle} from "@react-icons/all-files/fa/FaGoogle";
 import {FaGithub} from "@react-icons/all-files/fa/FaGithub";
@@ -13,6 +13,7 @@ const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading,googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
     const navigate = useNavigate();
+    const location = useLocation();
 
     if (googleError || githubError) {
         switch (googleError?.code || githubError?.code) {
@@ -29,9 +30,10 @@ const SocialLogin = () => {
                 toast.error(googleError?.message || githubError?.message);
         }
     }
-
+    //redirect user to previous page
+    let from = location.state?.from?.pathname || "/";
     if (googleUser || githubUser) {
-        navigate('/');
+        navigate(from, {replace: true});
     }
 
     if (googleLoading || githubLoading) {
