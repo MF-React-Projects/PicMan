@@ -11,7 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const Checkout = () => {
     const {serviceId} = useParams();
     const [user] = useAuthState(auth);
-    console.log(serviceId)
 
     const {register, handleSubmit, formState: {errors}} = useForm({
         defaultValues: {
