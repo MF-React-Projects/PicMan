@@ -28,7 +28,7 @@ const Header = () => {
                             <Nav className="m-auto">
                                 <CustomLink to="/">Home</CustomLink>
                                 <CustomLink to="/about">About</CustomLink>
-                                <CustomLink to="/blogs">Blogs</CustomLink>
+                                <CustomLink to="/checkout">Checkout</CustomLink>
                             </Nav>
                             <div className="pm-header-right">
                                 {

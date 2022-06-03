@@ -30,7 +30,6 @@ function App() {
                     </RequireAuth>
                 }/>
                 <Route path='/about' element={<About/>}/>
-                <Route path='/blogs' element={<Blog/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='*' element={<NotFound/>}/>
